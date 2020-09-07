@@ -7,28 +7,18 @@
 </template>
 
 <script>
+  import { getData } from '../../api/index.js'
 	export default {
 		data() {
 			return {
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
+				href: ''
 			}
 		},
     created() {
-      uni.request({
-          url: 'http://apitest.xiniaogongkao.com/appv1/banner', //仅为示例，并非真实接口地址。
-          method: 'post',
-          data: {
-              text: 'uni.request'
-          },
-          header: {
-              'custom-header': 'hello', //自定义请求头信息
-              'content-type': 'application/x-www-form-urlencoded'
-          },
-          success: (res) => {
-              console.log(res.data);
-              this.text = 'request success';
-          }
-      });
+      console.log(33333, getData)
+      getData({ name: 'litaolin' }).then(res => {
+        console.log(2222)
+      })
     },
 		methods: {
       
